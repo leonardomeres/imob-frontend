@@ -40,7 +40,7 @@ export default function ClientList() {
   return (
     <div>
       <h3 style={{ fontWeight: '600', marginBottom: '1rem' }}>Lista de Clientes</h3>
-      {clients.map((client) => (
+     {Array.isArray(clients) && clients.map(client => (
         <div
           key={client.id}
           className="card"
