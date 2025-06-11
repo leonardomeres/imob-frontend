@@ -61,12 +61,12 @@ export default function ClientList() {
             <div style={{ marginTop: '8px', fontSize: '0.95rem', color: '#333' }}>
               <div><strong>Endereço:</strong> {client.address}</div>
               <div>
-                <strong>Anúncio:</strong>{' '}
-                <a href={client.listing_link} target="_blank" rel="noopener noreferrer">
-                  Ver Anúncio
+                <strong>Anúncio:</strong><a href={client.listingLink} target="_blank" rel="noopener noreferrer">
+                  {client.listingLink ? ' Ver Anúncio' : ' Nenhum link disponível'}
                 </a>
               </div>
               <div><strong>Observações:</strong> {client.notes}</div>
+              <div><strong>Tipo:</strong> {client.type}</div>
 
               {/* Action buttons */}
               <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>

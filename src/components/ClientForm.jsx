@@ -7,7 +7,8 @@ export default function ClientForm() {
     telefone: '',
     endereco: '',
     linkAnuncio: '',
-    observacoes: ''
+    observacoes: '',
+    tipo: ''
   });
 
   const handleChange = (e) => {
@@ -22,8 +23,9 @@ export default function ClientForm() {
       name: form.nome,
       phone: form.telefone,
       address: form.endereco,
-      listing_link: form.linkAnuncio,
-      notes: form.observacoes
+      listingLink: form.linkAnuncio,
+      notes: form.observacoes,
+      type: form.tipo
     };
 
     try {
@@ -49,7 +51,8 @@ export default function ClientForm() {
         telefone: '',
         endereco: '',
         linkAnuncio: '',
-        observacoes: ''
+        observacoes: '',
+        tipo: ''
       });
     } catch (err) {
       console.error('Erro ao salvar cliente:', err.message);
@@ -67,7 +70,14 @@ export default function ClientForm() {
       <input type="text" name="endereco" value={form.endereco} onChange={handleChange} placeholder="Endereço" className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
       <input type="text" name="linkAnuncio" value={form.linkAnuncio} onChange={handleChange} placeholder="Link do Anúncio" className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
       <textarea name="observacoes" value={form.observacoes} onChange={handleChange} placeholder="Observações" rows={4} className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-
+      <label>
+      Tipo de Cliente:
+      <select name="tipo" value={form.tipo} onChange={handleChange} placeholder="Tipo" className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <option value="Null">Selecione</option>
+        <option value="sale">Venda</option>
+        <option value="rent">Aluguel</option>
+      </select>
+    </label>
       <button type="submit" className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition">
         Salvar
       </button>
